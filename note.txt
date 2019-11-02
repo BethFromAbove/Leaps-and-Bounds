@@ -1,0 +1,11 @@
+Navigate to directory with index.html
+
+(starting project)
+make a package.json
+npm install
+creates a package-lock.json and node_modules directory
+
+(for running locally)
+python -m SimpleHTTPServer
+localhost:8000
+
