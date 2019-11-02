@@ -46,7 +46,7 @@ function create ()
 
     //  Here we create the ground.
     //  Scale it to fit the width of the game (the original sprite is 400x32 in size)
-    platforms.create(400, 568, 'ground').setScale(2).refreshBody();
+    platforms.create(400, 568, 'ground').setScale(4).refreshBody();
 
     //  Now let's create some ledges
     platforms.create(600, 400, 'ground');
@@ -112,6 +112,16 @@ function create ()
     this.physics.add.overlap(player, stars, collectStar, null, this);
 
     this.physics.add.collider(player, bombs, hitBomb, null, this);
+
+    //get camera to follow player
+    this.cameras.main.setSize(800, 600);
+
+    this.cameras.main.startFollow(player, false, 0.1, 0.1);
+
+    //  Set the camera and physics bounds to be the size of 4x4 bg images
+    this.cameras.main.setBounds(0, 0, 1000, 600);
+    this.physics.world.setBounds(0, 0, 1000, 600);
+
 }
 
 function update ()
