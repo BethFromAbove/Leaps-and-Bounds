@@ -84,6 +84,18 @@ function create ()
     //  Input Events
     cursors = this.input.keyboard.createCursorKeys();
 
+        //SpaceKey = this.input.keyboard.addKey('SPACE');  // Get key object
+
+            // SpaceKey.on('down', function(event) {
+        //     //deltaT = 0;
+        //     liftOff = true;});
+        // SpaceKey.on('up', function(event) {
+        //     //deltaT = spaceHeldDuration;
+        //     comeHome = true;});
+        // //this.add.image(400, 300, 'logo');
+
+        //  Input Events
+
     //  Some stars to collect, 12 in total, evenly spaced 70 pixels apart along the x axis
     stars = this.physics.add.group({
         key: 'star',
