@@ -73,15 +73,15 @@ export default class PreloaderScene extends Phaser.Scene {
         });
 
         // load assets needed in our game
-        this.load.image('blueButton1', 'assets/button1.png');
-        this.load.image('blueButton2', 'assets/logo2.png');
+        this.load.image('blueButton1', 'assets/silverbutton.png');
+        this.load.image('blueButton2', 'assets/silverbuttonpressed.png');
         this.load.image('phaserLogo', 'assets/logo.png');
         this.load.image('bluedot', 'assets/bluedot.png');
         this.load.image('slider', 'assets/slider.png');
         this.load.image('sliderBG', 'assets/sliderBG.png');
 
-        this.load.image('box', 'assets/logo3.png');
-        this.load.image('checkedBox', 'assets/logo4.png');
+        this.load.image('box', 'assets/checkbox.png');
+        this.load.image('checkedBox', 'assets/checkbox-ticked.png');
         this.load.audio('bgMusic', ['assets/music.mp3']);
 
         // remove progress bar when complete

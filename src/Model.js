@@ -4,6 +4,7 @@ export default class Model {
         this._musicOn = true;
         this._bgMusicPlaying = false;
         this._money = 0;
+        this._level = 0;
     }
     
     set musicOn(value) {
@@ -36,5 +37,13 @@ export default class Model {
 
     get money() {
         return this._money;
+    }
+
+    set level(value) {
+        this._level = value;
+    }
+
+    get level() {
+        return this._level;
     }
 }

@@ -12,6 +12,7 @@ var hasLaunched = false;
 var previousTime;
 var startTime;
 var targetTime = 50;
+
 var slider;
 
 var moneyText;
@@ -24,6 +25,8 @@ export default class GameScene extends Phaser.Scene {
     create () {
 
         var config = this.game.config;
+        this.model = this.sys.game.globals.model;
+
 
         previousTime = Date.now();
 
@@ -31,7 +34,7 @@ export default class GameScene extends Phaser.Scene {
 
         this.text = this.add.text(300, 100, 'Twin Paradox', { fontSize: 40 });
 
-        this.gameButton = new Button(this, 50, 500, 'slider', 'slider', 'Menu', 'Title');
+        this.gameButton = new Button(this, config.width*0.25, config.height-100, 'blueButton1', 'blueButton2', 'Menu', 'Title');
 
         shipTimeText = this.add.text(16, 16, 'Ship  Time: 0', { fontSize: '32px', fill: '#FFF' });
         earthTimeText = this.add.text(16, 50, 'Earth Time: 0', { fontSize: '32px', fill: '#FFF' });
@@ -40,8 +43,22 @@ export default class GameScene extends Phaser.Scene {
 
         moneyText = this.add.text(400, 200, 'Money = 0', { fontSize: '32px', fill: '#FFF' });
 
+        this.gameButton1 = new Button(this, config.width*0.75, config.height - 100, 'blueButton1', 'blueButton2', 'Upgrades', 'Upgrades');
 
-    this.add.image(400, 300, 'sliderBG');
+
+
+    if (this.model.level == 0)
+    {
+            this.add.image(400, 300, 'sliderBG');
+
+    }
+    else if (this.model.level == 1)
+    {
+            this.add.image(400, 300, 'sliderBG');
+            this.add.image(600, 300, 'sliderBG');
+
+
+    }
 
     slider = this.add.image(400, 200, 'slider');
 
@@ -155,15 +172,24 @@ export default class GameScene extends Phaser.Scene {
 
             if (speed <= 0)
             {
-                if (earthTime >= targetTime)
+                if (Math.abs(earthTime-targetTime)<=10)
                 {
                     speedText.setText('Good job!');
+                    console.log('less than ten');
+                    this.model.money += 50;
                 }
                 else
                 {
                     speedText.setText('Not there yet');
+                    this.model.money += 5;
                 } 
-                this.gameButton1 = new Button(this, config.width/2, config.height - 100, 'blueButton1', 'blueButton2', 'Go to Upgrades', 'Upgrades');
+                earthTime = 0;
+                previousTime = 0;
+                startTime = 0;
+                hasLaunched = false;
+                //this.model.level += 1;
+                console.log(this.model.level);
+
             }
         }
     }
