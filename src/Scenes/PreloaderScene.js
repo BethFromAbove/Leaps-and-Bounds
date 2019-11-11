@@ -79,6 +79,8 @@ export default class PreloaderScene extends Phaser.Scene {
         this.load.image('bluedot', 'assets/bluedot.png');
         this.load.image('slider', 'assets/slider.png');
         this.load.image('sliderBG', 'assets/sliderBG.png');
+        this.load.image('background', 'assets/background.png');
+        this.load.image('pointer', 'assets/pointercircle.png');
 
         this.load.image('box', 'assets/checkbox.png');
         this.load.image('checkedBox', 'assets/checkbox-ticked.png');
