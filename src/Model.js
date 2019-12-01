@@ -5,6 +5,8 @@ export default class Model {
         this._bgMusicPlaying = false;
         this._money = 0;
         this._level = 0;
+        this._totalRocket = 0;
+        this._totalEarth = 0;
     }
     
     set musicOn(value) {
@@ -45,5 +47,21 @@ export default class Model {
 
     get level() {
         return this._level;
+    }
+
+    set totalRocket(value) {
+        this._totalRocket = value;
+    }
+
+    get totalRocket() {
+        return this._totalRocket;
+    }
+
+    set totalEarth(value) {
+        this._totalEarth = value;
+    }
+
+    get totalEarth() {
+        return this._totalEarth;
     }
 }

@@ -62,28 +62,31 @@ export default class GameScene extends Phaser.Scene {
 
         if (this.model.level == 0)
         {
-            targetTime = 15;
+            targetTime = 30;
             this.add.image(config.width/2, config.height/2, 'background');
             dial1 = this.add.image(config.width/2, config.height/2 + 40, 'dial');
             pointer1 = this.add.image(config.width/2, config.height/2 + 40, 'pointer');
             speedDigitsText1 = this.add.text(config.width*0.46, config.height*0.53, '0', { fontSize: '40px', fill: '#FFF' });
+            //this.add.text(config.width/2 - 25, config.height*0.6, 'Main Engine', { fontSize: '10px', fill: '#FFF' })
 
         }
         else if (this.model.level == 1)
         {
-            targetTime = 25;
+            targetTime = 500;
             this.add.image(config.width/2, config.height/2, 'background2');
-            dial1 = this.add.image(config.width*0.35, config.height/2 + 40, 'dial');
-            pointer1 = this.add.image(config.width*0.35, config.height/2 + 40, 'pointer');
-            dial2 = this.add.image(config.width*0.65, config.height/2 + 40, 'dial');
-            pointer2 = this.add.image(config.width*0.65, config.height/2 + 40, 'pointer');
-            speedDigitsText1 = this.add.text(config.width*0.3, config.height*0.53, '0', { fontSize: '40px', fill: '#FFF' });
-            speedDigitsText2 = this.add.text(config.width*0.59, config.height*0.54, '0', { fontSize: '40px', fill: '#FFF' });
-
+            dial1 = this.add.image(config.width*0.37, config.height/2 + 40, 'dial');
+            pointer1 = this.add.image(config.width*0.37, config.height/2 + 40, 'pointer');
+            dial2 = this.add.image(config.width*0.62, config.height/2 + 40, 'dial');
+            pointer2 = this.add.image(config.width*0.62, config.height/2 + 40, 'pointer');
+            speedDigitsText1 = this.add.text(config.width*0.34, config.height*0.53, '0', { fontSize: '40px', fill: '#FFF' });
+            speedDigitsText2 = this.add.text(config.width*0.59, config.height*0.53, '0', { fontSize: '40px', fill: '#FFF' });
+            this.add.text(config.width*0.33, config.height*0.6, 'Main Engine', { fontSize: '10px', fill: '#FFF' })
+            this.add.text(config.width*0.565, config.height*0.6, 'Booster Engine', { fontSize: '10px', fill: '#FFF' })
+        
         }
         else if (this.model.level == 2)
         {
-            targetTime = 35;
+            targetTime = 10000;
             this.add.image(config.width/2, config.height/2, 'background3');
             dial1 = this.add.image(config.width/4, config.height/2 + 40, 'dial');
             pointer1 = this.add.image(config.width/4, config.height/2 + 40, 'pointer');
@@ -92,9 +95,13 @@ export default class GameScene extends Phaser.Scene {
             dial3 = this.add.image(config.width*0.75, config.height/2 + 40, 'dial');
             pointer3 = this.add.image(config.width*0.75, config.height/2 + 40, 'pointer');
             speedDigitsText1 = this.add.text(config.width*0.2, config.height*0.53, '0', { fontSize: '40px', fill: '#FFF' });
-            speedDigitsText2 = this.add.text(config.width*0.45, config.height*0.54, '0', { fontSize: '40px', fill: '#FFF' });
-            speedDigitsText3 = this.add.text(config.width*0.7, config.height*0.54, '0', { fontSize: '40px', fill: '#FFF' });
-
+            speedDigitsText2 = this.add.text(config.width*0.45, config.height*0.53, '0', { fontSize: '40px', fill: '#FFF' });
+            speedDigitsText3 = this.add.text(config.width*0.7, config.height*0.53, '0', { fontSize: '40px', fill: '#FFF' });
+            this.add.text(config.width*0.2, config.height*0.6, 'Main Engine', { fontSize: '10px', fill: '#FFF' })
+            this.add.text(config.width/2 - 40, config.height*0.6, 'Booster Engine', { fontSize: '10px', fill: '#FFF' })
+            this.add.text(config.width/2, config.height*0.62, '1', { fontSize: '10px', fill: '#FFF' })            
+            this.add.text(config.width*0.7, config.height*0.6, 'Booster Engine', { fontSize: '10px', fill: '#FFF' })        
+            this.add.text(config.width*0.75, config.height*0.62, '2', { fontSize: '10px', fill: '#FFF' })                    
         }
 
 
@@ -254,7 +261,6 @@ export default class GameScene extends Phaser.Scene {
 
         var speedPercent = speed*100;
 
-        //var displaySpeed = Math.min(speedPercent.toFixed(0), 99);
         if (this.model.level == 0)
         {
             speedDigitsText1.setText(Math.min(speedPercent.toFixed(0), 99));
@@ -264,7 +270,7 @@ export default class GameScene extends Phaser.Scene {
             speedDigitsText1.setText(Math.min(speedPercent.toFixed(0), 99));
             if (speedPercent > 99)
             {
-                speedDigitsText1.setColor('#ffff00');
+                speedDigitsText1.setColor('#555555');
                 speedDigitsText2.setColor('#ffffff');
                 var str = speedPercent.toFixed(2);
                 speedDigitsText2.setText(str.substring(str.length - 2, str.length));
@@ -273,7 +279,7 @@ export default class GameScene extends Phaser.Scene {
             {
                 speedDigitsText1.setColor('#ffffff');
                 speedDigitsText2.setText("00");
-                speedDigitsText2.setColor('#ffff00');
+                speedDigitsText2.setColor('#555555');
             }
 
         }
@@ -282,16 +288,16 @@ export default class GameScene extends Phaser.Scene {
             speedDigitsText1.setText(Math.min(speedPercent.toFixed(0), 99));
             if (speedPercent > 99 && speedPercent < 99.99)
             {
-                speedDigitsText1.setColor('#ffff00');
+                speedDigitsText1.setColor('#555555');
                 speedDigitsText2.setColor('#ffffff');
-                speedDigitsText3.setColor('#ffff00');
+                speedDigitsText3.setColor('#555555');
                 var str = speedPercent.toFixed(2);
                 speedDigitsText2.setText(str.substring(str.length - 2, str.length));
             }
             else if (speedPercent > 99.99) 
             {
-                speedDigitsText1.setColor('#ffff00');
-                speedDigitsText2.setColor('#ffff00');
+                speedDigitsText1.setColor('#555555');
+                speedDigitsText2.setColor('#555555');
                 speedDigitsText3.setColor('#ffffff');
                 speedDigitsText2.setText("99");
                 var str = speedPercent.toFixed(4);
@@ -301,9 +307,9 @@ export default class GameScene extends Phaser.Scene {
             {
                 speedDigitsText1.setColor('#ffffff');
                 speedDigitsText2.setText("00");
-                speedDigitsText2.setColor('#ffff00');
+                speedDigitsText2.setColor('#555555');
                 speedDigitsText3.setText("00");
-                speedDigitsText3.setColor('#ffff00');
+                speedDigitsText3.setColor('#555555');
             }
 
         }
@@ -332,7 +338,25 @@ export default class GameScene extends Phaser.Scene {
 
             if (speed <= 0)
             {
+
                 var popup = this.add.image(config.width/2, config.height/2, 'popup')
+
+                if ((this.model.level == 2) && (earthTime > 10000))
+                {
+                    this.model.totalRocket += parseFloat(((currentTime-startTime)/1000).toFixed(1));
+                    this.model.totalEarth += parseFloat(earthTime.toFixed(1));
+
+                    this.add.text(config.width/4 + 10, config.height*0.2, 'Civilisation has crumbled', { fontSize: '25px', fill: '#000' });
+                    this.add.text(config.width/4 + 10, config.height*0.25, 'There are no more packages', { fontSize: '25px', fill: '#000' });
+                    this.add.text(config.width/4 + 10, config.height*0.4, '... You win?', { fontSize: '25px', fill: '#000' });
+                    this.add.text(config.width/4 + 10, config.height*0.55, 'Total time in Rocket:', { fontSize: '25px', fill: '#000' });
+                    this.add.text(config.width/4 + 10, config.height*0.6, this.model.totalRocket + ' years', { fontSize: '25px', fill: '#000' });
+                    this.add.text(config.width/4 + 10, config.height*0.65, 'Total time on Earth:', { fontSize: '25px', fill: '#000' });
+                    this.add.text(config.width/4 + 10, config.height*0.7, this.model.totalEarth + ' years', { fontSize: '25px', fill: '#000' });
+
+                }
+                else
+                {
 
                 this.gameButton1 = new Button(this, config.width/2, config.height - 150, 'Button', 'ButtonPressed', 'Upgrades', 'Upgrades');
 
@@ -361,7 +385,9 @@ export default class GameScene extends Phaser.Scene {
                 
                 this.add.text(config.width/3, config.height*0.55 + 5, 'Time passed on the Rocket', { fontSize: '20px', fill: '#000' });
                 this.add.text(config.width/3 + 50, config.height*0.6 + 5, ((currentTime-startTime)/1000).toFixed(1) + ' years', { fontSize: '20px', fill: '#000' });
-
+                }
+                this.model.totalRocket += parseFloat(((currentTime-startTime)/1000).toFixed(1));
+                this.model.totalEarth += parseFloat(earthTime.toFixed(1));
                 earthTime = 0;
                 previousTime = 0;
                 startTime = 0;

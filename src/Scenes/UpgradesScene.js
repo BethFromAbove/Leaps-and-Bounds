@@ -22,13 +22,13 @@ export default class UpgradesScene extends Phaser.Scene {
         }
         else if (this.model.level == 1)
         {
-            this.upgrade1Button = this.add.image(200, 200, 'checkedBox');
-            this.upgrade2Button = this.add.image(200, 300, 'box');
+            this.upgrade1Button = this.add.image(170, 220, 'checkedBox');
+            this.upgrade2Button = this.add.image(170, 300, 'box');
         }
         else if (this.model.level == 2)
         {
-            this.upgrade1Button = this.add.image(200, 200, 'checkedBox');
-            this.upgrade2Button = this.add.image(200, 300, 'checkedBox');
+            this.upgrade1Button = this.add.image(170, 220, 'checkedBox');
+            this.upgrade2Button = this.add.image(170, 300, 'checkedBox');
         }
 
         this.upgrade1Text = this.add.text(220, 210, 'Buy upgrade 1 (50)', { fontSize: 24, fill: '#000' });
