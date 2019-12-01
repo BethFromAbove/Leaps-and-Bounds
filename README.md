@@ -1,6 +1,25 @@
 # Leaps-and-Bounds
 GitHub GameOff 2019
 
+Relatively Special Deliveries - Delivering the packages of today - tomorrow!
+
+Thanks to Einstein’s Special Relativity, time slows down for a traveller moving at near light speed. We make use of this property of space-time, plus our expendable employees, to run your future errands!
+
+That’s right, for only a handful of SpaceBucks, we will plunge into the far-flung future to deliver things on your behalf. Worried about forgetting your anniversary in 10 years? We’re on it! Want to send a birthday present to your great-great-great-grand daughter? Look no further!
+
+With Relatively Special Deliveries, the future is now!
+
+T&Cs
+All trips are one-way, travelling back in time is not possible with our current understanding of physics. RSD is not responsible for any loss of goods or personnel due to cataclysmic future events.
+
+# Maths
+
+Time dilation is calculated using:
+delta_t = delta_tau/(sqrt(1-(v^2/c^2)))
+where delta_t is the time on Earth, delta_tau is the time on the rocket, v is the speed of the rocket and c is the speed of light in a vaccuum.
+
+# Instructions
+
 Navigate to directory with index.html
 
 (starting project)
