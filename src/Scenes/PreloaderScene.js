@@ -7,7 +7,8 @@ export default class PreloaderScene extends Phaser.Scene {
 
     preload () {
         // add logo image
-        this.add.image(400, 200, 'logo');
+        var logo = this.add.image(400, 120, 'Logo');
+        logo.setScale(0.45);
 
         // display progress bar
         var progressBar = this.add.graphics();
@@ -73,18 +74,26 @@ export default class PreloaderScene extends Phaser.Scene {
         });
 
         // load assets needed in our game
-        this.load.image('blueButton1', 'assets/silverbutton.png');
-        this.load.image('blueButton2', 'assets/silverbuttonpressed.png');
-        this.load.image('phaserLogo', 'assets/logo.png');
+        this.load.image('Button', 'assets/silverbutton.png');
+        this.load.image('ButtonPressed', 'assets/silverbuttonpressed.png');
+        this.load.image('Logo', 'assets/Logo.png');
         this.load.image('bluedot', 'assets/bluedot.png');
-        this.load.image('slider', 'assets/slider.png');
-        this.load.image('sliderBG', 'assets/sliderBG.png');
-        this.load.image('background', 'assets/background.png');
+        this.load.image('upArrow', 'assets/UpArrow.png');
+        this.load.image('upArrowPressed', 'assets/UpArrowPressed.png');
+        this.load.image('downArrow', 'assets/DownArrow.png');
+        this.load.image('downArrowPressed', 'assets/DownArrowPressed.png');
+        this.load.image('background', 'assets/backgroundNew.png');
+        this.load.image('background2', 'assets/background2.png');
+        this.load.image('background3', 'assets/background3.png');
+        this.load.image('upgradeBackground', 'assets/Upgrades.png');
+        this.load.image('titleBackground', 'assets/TitleBackground.png');        
         this.load.image('pointer', 'assets/pointercircle.png');
+        this.load.image('dial', 'assets/dial.png');
+        this.load.image('popup', 'assets/Popup.png');
 
         this.load.image('box', 'assets/checkbox.png');
         this.load.image('checkedBox', 'assets/checkbox-ticked.png');
-        this.load.audio('bgMusic', ['assets/music.mp3']);
+        this.load.audio('bgMusic', ['assets/BitQuest.mp3']);
 
         // remove progress bar when complete
         this.load.on('complete', function () {
@@ -107,7 +116,7 @@ export default class PreloaderScene extends Phaser.Scene {
     }
 
     ready () {
-        this.scene.start('Game');
+        this.scene.start('Title');
         // this.readyCount++;
         // if (this.readyCount === 20) {
         //     this.scene.start('Credits');
